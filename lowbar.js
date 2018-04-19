@@ -13,14 +13,18 @@ _.take = (array, n = 1) => {
   return array.slice(0, n);
 };
 
-_.uniq = (array)=>{
-  return array.reduce((acc,val)=>{
+_.uniq = array => {
+  return array.reduce((acc, val) => {
     if (acc.indexOf(val) === -1) {
       acc.push(val);
     }
     return acc;
-  },[])
-
+  }, []);
 };
 
+_.forEach = (collection, iteratee = _.identity) => {
+  for (let i = 0; i < collection.length; i++) {
+    iteratee(collection[i]);
+  }
+};
 module.exports = _;
