@@ -13,4 +13,14 @@ _.take = (array, n = 1) => {
   return array.slice(0, n);
 };
 
+_.uniq = (array)=>{
+  return array.reduce((acc,val)=>{
+    if (acc.indexOf(val) === -1) {
+      acc.push(val);
+    }
+    return acc;
+  },[])
+
+};
+
 module.exports = _;
