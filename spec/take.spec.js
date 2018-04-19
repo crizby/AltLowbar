@@ -2,7 +2,7 @@ const { expect } = require('chai');
 
 const _ = require('../lowbar');
 
-describe.only('#take', () => {
+describe('#take', () => {
   it('returns an array when passed an array', () => {
     expect(_.take([])).to.eql([]);
   });
