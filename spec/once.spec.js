@@ -10,4 +10,11 @@ describe.only('#once', () => {
     spyonce();
     expect(input.callCount).to.equal(1);
   });
+  it('returns the same value reference each time regardless fo how many times it is called', () => {
+    const input = sinon.spy();
+    const spyonce = _.once(input);
+    spyonce();
+    spyonce();
+    expect(input.returnValues[0]).to.equal(input.returnValues[1]);
+  });
 });

@@ -28,9 +28,7 @@ _.forEach = (collection, iteratee = _.identity) => {
   }
 };
 
-
-
-/*_.map = (collection, iteratee = _.identity ) => {
+/* _.map = (collection, iteratee = _.identity ) => {
   let result = [];
   for (let i = 0; i < collection.length; i++){
     result.push(iteratee(collection[i]))
@@ -39,18 +37,27 @@ _.forEach = (collection, iteratee = _.identity) => {
 
 }*/
 
-_.reduce = (collection, iteratee, accumulator)=> {
+_.reduce = (collection, iteratee, accumulator) => {
   let index;
 
-for(var i = 0; i < collection.length; i ++){
-  accumulator = iteratee(accumulator,collection[i])
-  index = i
-  
-}
-return accumulator;
-}
+  for (var i = 0; i < collection.length; i++) {
+    accumulator = iteratee(accumulator, collection[i]);
+    index = i;
+  }
+  return accumulator;
+};
 
-
-
+_.once = func => {
+  let counter = 0;
+  let funcResult;
+  return function(a) {
+    if (counter === 0) {
+      counter += 1;
+      let funcResult = func(a);
+      return funcResult;
+    }
+    return funcResult;
+  };
+};
 
 module.exports = _;
