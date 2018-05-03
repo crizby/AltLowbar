@@ -60,4 +60,6 @@ _.once = func => {
   };
 };
 
+//_.spread = (func, [(start = 0)]);
+
 module.exports = _;
